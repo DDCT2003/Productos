@@ -1,0 +1,55 @@
+﻿@model List<Producto>
+@{
+    ViewData["Title"] = "Lista de Productos";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>En esta página se muestran los productos</p>
+
+
+
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-dark" onclick="location.href='@Url.Action("Create", "Producto")'">Nuevo Producto <i class="fas fa-plus"></i></button>
+    <button type="button" class="btn btn-dark" onclick="location.href='@Url.Action("Edit", "Producto")'">Editar Producto <i class="fas fa-file"></i></button>
+    <button type="button" class="btn btn-dark">
+        Like <i class="fas fa-heart"></i>
+    </button>
+
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model){
+        <tr>
+            
+            <td>@item.IdProducto</td>
+            <td>@item.Nombre</td>
+            <td>@item.Descripcion</td>
+            <td>@item.Cantidad</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        
+                        <button type="button" class="btn btn-dark" onclick="location.href='@Url.Action("Edit", "Producto")'"><i class="fas fa-file"></i></button>
+                        <button type="button" class="btn btn-dark">
+                            <i class="fas fa-star"></i>
+                        </button>
+                        <button type="button" class="btn btn-dark">
+                        <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    
+                    </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
