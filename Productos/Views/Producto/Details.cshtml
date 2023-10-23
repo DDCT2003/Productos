@@ -1,6 +1,33 @@
-﻿@{
+﻿@model Producto;
+@{
     ViewData["Title"] = "Detalle productos";
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>En esta página se muestra el detalle de los productos</p>
+    
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input asp-for="Nombre" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        <input asp-for="Descripcion" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Cantidad</label>
+        <input asp-for="Cantidad" class="form-control"disabled>
+    </div>
+    <div class="row">
+     
+        <div class="col-6">
+            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Index", "Producto")'">
+
+                Regresar <i class="bi bi-arrow-return-left"></i>
+            </button>
+        </div>
+    </div>
+</form>
+

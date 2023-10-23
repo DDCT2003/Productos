@@ -10,10 +10,7 @@
 
 <div class="btn-group" role="group" aria-label="Basic example">
     <button type="button" class="btn btn-dark" onclick="location.href='@Url.Action("Create", "Producto")'">Nuevo Producto <i class="fas fa-plus"></i></button>
-    <button type="button" class="btn btn-dark" onclick="location.href='@Url.Action("Edit", "Producto")'">Editar Producto <i class="fas fa-file"></i></button>
-    <button type="button" class="btn btn-dark">
-        Like <i class="fas fa-heart"></i>
-    </button>
+    
 
 </div>
 
@@ -37,19 +34,18 @@
             <td>@item.Cantidad</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
+
                         
-                        <button type="button" class="btn btn-dark" onclick="location.href='@Url.Action("Edit", "Producto")'"><i class="fas fa-file"></i></button>
-                        <button type="button" class="btn btn-dark">
-                            <i class="fas fa-star"></i>
-                        </button>
-                        <button type="button" class="btn btn-dark">
-                        <i class="fas fa-trash"></i>
-                        </button>
+                        <a asp-action="Edit" asp-route-IdProducto="@item.IdProducto" class="btn btn-dark"><i class="bi bi-pencil-square"></i></a>
+                        <a asp-action="Details" asp-route-IdProducto="@item.IdProducto" class="btn btn-dark"> <i class="bi bi-card-text"></i></a>               
+                        <a asp-action="Delete" asp-route-IdProducto="@item.IdProducto" class="btn btn-dark"><i class="fas fa-trash"></i></a>
+
+                     
                     </div>
                     
                     </td>
 
-        </tr>
+        </tr>                                                       
         }
     </tbody>
 </table>
